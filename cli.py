@@ -3,6 +3,7 @@ import argparse
 import json
 import sys
 from dataclasses import asdict
+from monitor.watcher import watch
 
 from core.dns_lookup import dns_lookup, reverse_dns, get_ip
 from core.cert_transparency import cert_search
@@ -20,6 +21,10 @@ BANNER = """
 ██████╔╝██║ ╚████║███████║    ██║██║ ╚████║   ██║   ███████╗███████╗
 ╚═════╝ ╚═╝  ╚═══╝╚══════╝    ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚══════╝
         DNS Intelligence Platform — by A-z-exe
+        github.com/A-z-exe      telegram: @A_z_exe
+
+
+        
 """
 
 GREEN = "\033[92m"
@@ -183,6 +188,15 @@ def cmd_full(args):
     print(f"\n  {GREEN}Full recon complete. Graph saved to {out_file}{RESET}")
 
 
+def cmd_monitor(args):
+    print_section(f"DNS Monitor — {args.domain}")
+    watch(
+        domain=args.domain,
+        interval=args.interval,
+        scan_type=args.type
+    )
+
+
 def main():
     print(BANNER)
     parser = argparse.ArgumentParser(description="DNS Intelligence Platform")
@@ -214,6 +228,11 @@ def main():
     p_full = sub.add_parser("full", help="Full recon on a domain")
     p_full.add_argument("domain")
 
+    p_monitor = sub.add_parser("monitor", help="Monitor DNS changes and alert via Telegram")
+    p_monitor.add_argument("domain")
+    p_monitor.add_argument("--interval", type=int, default=3600, help="Check interval in seconds")
+    p_monitor.add_argument("--type", default="dns", choices=["dns", "subdomains", "cert"])
+
     args = parser.parse_args()
 
     commands = {
@@ -225,6 +244,7 @@ def main():
         "graph": cmd_graph,
         "compare": cmd_compare,
         "full": cmd_full,
+        "monitor": cmd_monitor,
     }
 
     if args.command in commands:
