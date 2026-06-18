@@ -1,18 +1,11 @@
 # 🔍 DNS Intelligence Platform
 
-<<<<<<< HEAD
 > A powerful DNS reconnaissance, asset discovery, and real-time monitoring tool for security researchers and bug bounty hunters.
-=======
-> A powerful DNS reconnaissance and asset discovery tool for security researchers and bug bounty hunters.
->>>>>>> 7cc461b33a0a7a2948e5cd98b511eaca7d905fd4
 
 ![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 ![Purpose](https://img.shields.io/badge/Purpose-Educational%20%26%20Defensive-blue?style=flat)
-<<<<<<< HEAD
 ![Version](https://img.shields.io/badge/Version-1.1.0-orange?style=flat)
-=======
->>>>>>> 7cc461b33a0a7a2948e5cd98b511eaca7d905fd4
 
 ---
 
@@ -27,10 +20,7 @@
 | 🕵️ Subdomain Enumeration | Fast multithreaded bruteforce |
 | 🕸️ Domain Graph | Visual relationship mapping (JSON export) |
 | 💾 History & Compare | Save results and detect changes over time |
-<<<<<<< HEAD
 | 🔔 DNS Monitor | Real-time monitoring with Telegram alerts |
-=======
->>>>>>> 7cc461b33a0a7a2948e5cd98b511eaca7d905fd4
 | 🚀 Full Recon | Run all modules in one command |
 
 ---
@@ -45,7 +35,6 @@ pip install -r requirements.txt
 
 ---
 
-<<<<<<< HEAD
 ## ⚙️ Configuration
 
 Create a `.env` file in the project root:
@@ -61,8 +50,6 @@ TELEGRAM_CHAT_ID=your_chat_id_here
 
 ---
 
-=======
->>>>>>> 7cc461b33a0a7a2948e5cd98b511eaca7d905fd4
 ## 🚀 Usage
 
 ### DNS Lookup
@@ -101,7 +88,6 @@ python cli.py graph example.com
 python cli.py compare example.com --type subdomains
 ```
 
-<<<<<<< HEAD
 ### 🔔 DNS Monitor + Telegram Alerts
 ```bash
 # Monitor DNS records every hour
@@ -126,8 +112,6 @@ When a change is detected, you receive a Telegram message like:
   - 10.0.0.1
 ```
 
-=======
->>>>>>> 7cc461b33a0a7a2948e5cd98b511eaca7d905fd4
 ### Full Recon (All Modules)
 ```bash
 python cli.py full example.com
@@ -144,18 +128,14 @@ dns-intel/
 │   ├── cert_transparency.py # crt.sh integration
 │   ├── asn_lookup.py        # BGPView ASN info
 │   └── subdomain_enum.py    # Multithreaded bruteforce
-<<<<<<< HEAD
 ├── monitor/
 │   ├── watcher.py           # DNS change detection
 │   └── alerts.py            # Telegram notifications
-=======
->>>>>>> 7cc461b33a0a7a2948e5cd98b511eaca7d905fd4
 ├── graph/
 │   └── domain_graph.py      # Relationship graph builder
 ├── storage/
 │   └── db.py                # SQLite history & compare
 ├── cli.py                   # Main CLI interface
-<<<<<<< HEAD
 ├── requirements.txt
 └── .env                     # Your credentials (not committed)
 ```
@@ -168,9 +148,6 @@ dns-intel/
 dnspython>=2.4.0
 requests>=2.31.0
 python-dotenv>=1.0.0
-=======
-└── requirements.txt
->>>>>>> 7cc461b33a0a7a2948e5cd98b511eaca7d905fd4
 ```
 
 ---
