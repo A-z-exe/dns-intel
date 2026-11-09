@@ -3,6 +3,10 @@ import argparse
 import json
 import sys
 from dataclasses import asdict
+
+if hasattr(sys.stdout, "reconfigure"):
+    # The banner uses box-drawing characters; legacy Windows codepages crash on them.
+    sys.stdout.reconfigure(encoding="utf-8")
 from monitor.watcher import watch
 
 from core.dns_lookup import dns_lookup, reverse_dns, get_ip

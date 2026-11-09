@@ -3,10 +3,11 @@
 
 A powerful DNS reconnaissance, asset discovery, and monitoring platform built for security researchers, penetration testers, and bug bounty hunters.
 
-![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat&logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 ![Version](https://img.shields.io/badge/Version-v0.2.0-orange?style=flat)
 ![Status](https://img.shields.io/badge/Status-Active%20Development-blue?style=flat)
+![CI](https://github.com/A-z-exe/dns-intel/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -56,6 +57,10 @@ TELEGRAM_CHAT_ID=your_chat_id_here
 **How to get your credentials:**
 1. Open `@BotFather` on Telegram → send `/newbot` → copy the token
 2. Open `@userinfobot` on Telegram → copy your Chat ID
+
+> **Security:** `.env` is git-ignored and must never be committed. If a bot token is
+> exposed, revoke it with `/revoke` in `@BotFather` and create a new one. Use
+> `.env.example` as the template.
 
 ---
 
@@ -142,8 +147,21 @@ dns-intel/
 │   └── db.py                # SQLite history & compare
 ├── cli.py                   # Main CLI interface
 ├── requirements.txt
-└── .env                     # Your credentials (not committed)
+├── .env.example             # Template for Telegram credentials
+└── .github/workflows/ci.yml # Compile and CLI smoke test
 ```
+
+---
+
+## 🧪 Development
+
+```bash
+pip install -r requirements.txt
+python -m compileall -q .
+python cli.py --help
+```
+
+CI runs the same three commands on every push and pull request.
 
 ---
 
