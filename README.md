@@ -196,4 +196,4 @@ The author assumes no responsibility for misuse of this software.
 **AmirHossein Zarei**
 Security Researcher • Python Developer • Bug Bounty Hunter
 
-GitHub: [github.com/A-z-exe](https://github.com/A-z-exe)
+GitHub: [github.com/A-z-exe](https://github.com/A-z-exe) · Website: [a-z-exe.github.io](https://a-z-exe.github.io/)
